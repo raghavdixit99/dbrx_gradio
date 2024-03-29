@@ -98,10 +98,35 @@ class LangChainModel:
         gpu_llm = HuggingFaceEndpoint(
             repo_id=model_id,
             task="question-answering",
-            huggingfacehub_api_token = "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"  # replace with device_map="auto" to use the accelerate library.
+            huggingfacehub_api_token = ""  # replace with device_map="auto" to use the accelerate library.
         )
 
         self.llm = gpu_llm
+
+        # I also tried the below code but it didn't work:
+        # from langchain_community.llms.huggingface_pipeline import HuggingFacePipeline
+        # from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+        # import torch
+
+        # model_id = "databricks/dbrx-instruct"
+        # tokenizer = AutoTokenizer.from_pretrained(
+        #     model_id,
+        #     trust_remote_code=True,
+        #     token="hf_token",
+        # )
+        # model = AutoModelForCausalLM.from_pretrained(
+        #     model_id,
+        #     device_map="auto",
+        #     torch_dtype=torch.bfloat16,
+        #     trust_remote_code=True,
+        #     token="hf_token",
+        # )
+
+        # pipe = pipeline(
+        #     "question-answering", model=model, tokenizer=tokenizer, max_new_tokens=200
+        # )
+        # self.llm = HuggingFacePipeline(pipeline=pipe)
+
 
     @method()
     def get_conversational_chain(self):
