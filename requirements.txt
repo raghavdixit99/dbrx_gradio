@@ -1,0 +1,13 @@
+langchain
+langchain-community
+streamlit
+unstructured
+unstructured[pdf]
+hf_transfer
+lancedb
+transformers
+tiktoken
+gpt4all
+modal
+accelerate
+PyPDF2
