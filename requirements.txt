@@ -1,6 +1,5 @@
 langchain
 langchain-community
-streamlit
 unstructured
 unstructured[pdf]
 hf_transfer
@@ -11,3 +10,4 @@ gpt4all
 modal
 accelerate
 PyPDF2
+streamlit
